@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 16.804 sec <<< FAILURE!
+calculateTest3(SimpleCalculateTests)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [8] but found [12]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at SimpleCalculateTests.calculateTest3(SimpleCalculateTests.java:30)
+
