@@ -47,4 +47,13 @@ public class SimpleCalculateTests {
         System.out.println("Calculation Test5 is running");
         Assert.assertEquals(c, 5);
     }
+
+    @Test(priority = 6)
+    public void calculateTest6() {
+        int a = 20;
+        int b = 2;
+        int c = 20 / 2;
+        System.out.println("Calculation Test6 is running");
+        Assert.assertEquals(c, 10);
+    }
 }
