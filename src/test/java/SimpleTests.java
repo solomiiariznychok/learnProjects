@@ -41,4 +41,9 @@ public class SimpleTests {
     public void test_check8(){
         System.out.println("Simple test8 is running");
     }
+
+    @Test(priority = 9)
+    public void test_check9(){
+        System.out.println("Simple test8 is running");
+    }
 }
