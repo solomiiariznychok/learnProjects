@@ -90,7 +90,7 @@
                         <suiteXmlFile>auto.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <parallel>methods</parallel>
-                    <threadCount>2</threadCount>
+                    <threadCount>3</threadCount>
                 </configuration>
             </plugin>
         </plugins>
