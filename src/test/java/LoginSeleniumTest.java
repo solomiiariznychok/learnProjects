@@ -9,7 +9,7 @@ public class LoginSeleniumTest  {
 
     @Test
     public void login() { // TODO Auto-generated method stub
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.linkedin.com/login");
