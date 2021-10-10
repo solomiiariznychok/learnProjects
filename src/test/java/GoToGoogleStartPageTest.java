@@ -9,7 +9,7 @@ public class GoToGoogleStartPageTest {
 
     @Test(priority = 1)
     public void goToGoogle() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
