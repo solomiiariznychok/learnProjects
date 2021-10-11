@@ -5,6 +5,15 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
+    
+       parameters {
+        string(name: 'BRANCH', defaultValue: 'master', description: '')
+        string(name: 'TESTS', defaultValue: 'AdobeContractSignTest#verifyMySunPowerAfterSignRedirection', description: '')
+    }
+
+    options {
+        timestamps()
+    }
 
     stages {
         stage('Build') {
