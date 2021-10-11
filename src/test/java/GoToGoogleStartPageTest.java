@@ -7,14 +7,13 @@ import java.util.concurrent.TimeUnit;
 
 public class GoToGoogleStartPageTest {
 
-    @Test(priority = 1)
-    public void goToGoogle() {
+       @Test(priority = 1)
+    public void goToGoogle() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://www.google.com");
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        Thread.sleep(36000);
         driver.close();
     }
 }
