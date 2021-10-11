@@ -12,6 +12,7 @@ public class GoToEbayTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://signin.ebay.com/");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.close();
     }
 }
