@@ -27,7 +27,7 @@ public class SimpleCalculateTests {
         int b = 2;
         int c = 10 + 2;
         System.out.println("Calculation Test3 is running");
-        Assert.assertEquals(c, 8);
+        Assert.assertEquals(c, 12);
     }
 
     @Test(priority = 4)
