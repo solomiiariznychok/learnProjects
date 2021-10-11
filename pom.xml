@@ -10,14 +10,10 @@
 
     <properties>
         <parameter1>SimpleTests.xml</parameter1>
-    </properties>
-
-    <properties>
         <parameter2>suiteXmlFile</parameter2>
     </properties>
-         
-         
-         
+
+             
     <packaging>jar</packaging>
 
     <dependencies>
