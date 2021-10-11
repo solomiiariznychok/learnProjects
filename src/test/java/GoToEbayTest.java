@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class GoToEbayTest {
-    @Test(priority = 2)
+    //@Test(priority = 2)
     public void goToEbay() {
        
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\\chromedriver\\chromedriver.exe");
