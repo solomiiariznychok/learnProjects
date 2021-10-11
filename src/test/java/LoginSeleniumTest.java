@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class LoginSeleniumTest  {
 
-    @Test
+    //@Test
     public void login() { // TODO Auto-generated method stub
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\sriznych\\Documents\\driver\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
