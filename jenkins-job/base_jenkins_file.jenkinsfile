@@ -37,7 +37,7 @@
 
                     // To run Maven on a Windows agent, use
                     //bat "mvn test"
-                    bat 'mvn clean install test -DsuiteXmlFile=SimpleTests'
+                     bat 'mvn clean test -DsuiteXmlFile=SimpleTests.xml'
                 }
 
                 post {
