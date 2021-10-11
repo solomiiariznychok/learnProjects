@@ -37,7 +37,7 @@
 
                     // To run Maven on a Windows agent, use
                     //bat "mvn test"
-                     bat 'mvn clean test -DsuiteXmlFile=SimpleTests.xml'
+                     bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/SimpleTests.xml'
                 }
 
                 post {
