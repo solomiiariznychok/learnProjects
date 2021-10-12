@@ -32,10 +32,8 @@
             stage('Run defined test suite') {
                     steps {
                         echo "Building configuration: ${params.SUITE}"
-                        script{
-                        def val = ${params.SUITE}
-                        }
-                        bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/val'
+                     
+                        bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${params.SUITE} '
                     }
              }
              
