@@ -1,4 +1,4 @@
- pipeline {
+  pipeline {
         agent any
 
         tools {
@@ -8,7 +8,8 @@
 
         parameters {
             string(name: 'BRANCH', defaultValue: 'master', description: '')
-            string(name: 'TESTS', defaultValue: 'AdobeContractSignTest#verifyMySunPowerAfterSignRedirection', description: '')
+            string(name: 'TESTS', defaultValue: 'SimpleTests#SimpleTests', description: 'Run test method/methods')
+            string(name: 'SUITE', defaultValue: 'SimpleTests.xml', description: 'Run test suite')
         }
 
         options {
@@ -27,22 +28,17 @@
             }
             stage('Run all test') {
                 steps {
-
                     cleanWs()
-                    // Get some code from a GitHub repository
-                    git 'https://github.com/solomiiariznychok/learnProjects.git'
-
-                    // Run Maven on a Unix agent.
-                    //sh "mvn -Dmaven.test.failure.ignore=true clean package"
-
-                    // To run Maven on a Windows agent, use
-                    //bat "mvn test"
-                     bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/SimpleTests.xml'
+                    bat "mvn test"
                 }
 
+            stage('Run defined test suite') {
+                    steps {
+                        cleanWs()
+                        bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${SUITE}.xml'
+                    }
+
                 post {
-                    // If Maven was able to run the tests, even if some of the test
-                    // failed, record the test results and archive the jar file.
                     success {
                         junit '**/target/surefire-reports/TEST-*.xml'
 
