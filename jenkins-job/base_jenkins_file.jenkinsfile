@@ -29,7 +29,7 @@
             stage('Run all test') {
                 steps {
                     cleanWs()
-                    bat "mvn test"
+                    bat "mvn install test"
                 }
             }
             stage('Run defined test suite') {
