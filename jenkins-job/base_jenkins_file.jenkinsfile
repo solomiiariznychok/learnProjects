@@ -34,7 +34,8 @@
                         echo "Building configuration: ${params.SUITE}"
                    
                    script {
-                   def gg = "${params.SUITE}"
+                 
+                   def gg = params.SUITE
                    echo "After operation: gg"
                  }
                    
