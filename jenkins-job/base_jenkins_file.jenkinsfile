@@ -29,7 +29,7 @@
             stage('Run all test') {
                 steps {
                     cleanWs()
-            
+                    git 'https://github.com/solomiiariznychok/learnProjects.git'
                     bat 'mvn clean install test'
                 }
             }
