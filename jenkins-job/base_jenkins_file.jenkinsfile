@@ -38,6 +38,7 @@
                         bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${SUITE}.xml'
                     }
              }
+         }
 
            post {
                success {
@@ -45,5 +46,5 @@
                     }
                 }
             }
-        }
+
     
