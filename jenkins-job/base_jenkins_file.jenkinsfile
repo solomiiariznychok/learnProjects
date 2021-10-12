@@ -31,7 +31,7 @@
             
             stage('Run defined test suite') {
                     steps {
-                        echo ${params.SUITE}
+                        'echo ${params.SUITE}'
                         bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${params.SUITE}'
                     }
              }
