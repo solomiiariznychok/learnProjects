@@ -19,25 +19,24 @@
         stages {
             stage('Checkout sources') {
                 steps {
-
+                    cleanWs()
                     checkout([$class           : 'GitSCM',
                               branches         : [[name: '${BRANCH}']],
                               extensions       : [],
                               userRemoteConfigs: [[url: 'https://github.com/solomiiariznychok/learnProjects.git']]])
+                              
+                  git 'https://github.com/solomiiariznychok/learnProjects.git'
                 }
             }
             
             stage('Run defined test suite') {
                     steps {
-                        cleanWs()
                         bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${SUITE}.xml'
                     }
              }
              
             stage('Run all test') {
                 steps {
-                    cleanWs()
-                    git 'https://github.com/solomiiariznychok/learnProjects.git'
                     bat 'mvn clean install test'
                 }
             }
