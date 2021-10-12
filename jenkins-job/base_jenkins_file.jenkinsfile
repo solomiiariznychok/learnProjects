@@ -31,17 +31,17 @@
                     cleanWs()
                     bat "mvn test"
                 }
-
+            }
             stage('Run defined test suite') {
                     steps {
                         cleanWs()
                         bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${SUITE}.xml'
                     }
+             }
 
-                post {
-                    success {
-                        junit '**/target/surefire-reports/TEST-*.xml'
-
+           post {
+               success {
+                  junit '**/target/surefire-reports/TEST-*.xml'
                     }
                 }
             }
