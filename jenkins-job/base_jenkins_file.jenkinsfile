@@ -26,6 +26,14 @@
                               userRemoteConfigs: [[url: 'https://github.com/solomiiariznychok/learnProjects.git']]])
                 }
             }
+            
+            stage('Run defined test suite') {
+                    steps {
+                        cleanWs()
+                        bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${SUITE}.xml'
+                    }
+             }
+             
             stage('Run all test') {
                 steps {
                     cleanWs()
@@ -33,12 +41,7 @@
                     bat 'mvn clean install test'
                 }
             }
-            stage('Run defined test suite') {
-                    steps {
-                        cleanWs()
-                        bat 'mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test/resources/${SUITE}.xml'
-                    }
-             }
+            
          }
 
            post {
