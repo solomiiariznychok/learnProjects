@@ -29,7 +29,8 @@
             stage('Run all test') {
                 steps {
                     cleanWs()
-                    bat "mvn install test"
+            
+                    bat 'mvn clean install test'
                 }
             }
             stage('Run defined test suite') {
