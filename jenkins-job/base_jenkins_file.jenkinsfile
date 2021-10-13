@@ -19,13 +19,13 @@
         stages {
             stage('Checkout sources') {
                 steps {
-                    cleanWs()
+                    //cleanWs()
                     checkout([$class           : 'GitSCM',
                               branches         : [[name: '${BRANCH}']],
                               extensions       : [],
                               userRemoteConfigs: [[url: 'https://github.com/solomiiariznychok/learnProjects.git']]])
                               
-                  git 'https://github.com/solomiiariznychok/learnProjects.git'
+                  //git 'https://github.com/solomiiariznychok/learnProjects.git'
                 }
             }
             
