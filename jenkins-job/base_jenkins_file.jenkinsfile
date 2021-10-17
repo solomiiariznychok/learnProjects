@@ -40,11 +40,11 @@
                     }
              }
              
-            stage('Run all test') {
-                steps {
-                    bat 'mvn clean install test'
-                }
-            }
+            //stage('Run all test') {
+               //steps {
+                    //bat 'mvn clean install test'
+               //}
+           //}
             
          }
          
