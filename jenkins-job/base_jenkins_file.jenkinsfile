@@ -56,8 +56,7 @@
     }
     
        stage('Send email'){
-           steps{
-              emailext 
+           steps {
               mail bcc: '', 
               body: 'Please see allure report', 
               cc: '', 
