@@ -55,12 +55,12 @@
        }
     }
     
-    stage('tgdfdx'){
+    stage('Email notofication'){
       steps{
    
-            emailext body: 'A Test EMail', 
-            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], 
-            subject: 'Test'
+          emailext body: 'Here is Jenkins result notofication message', 
+          subject: 'Jenkins notofication', 
+          to: 'solomiyariznuchok@gmail.com'
       }
     }
   }
