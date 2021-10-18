@@ -38,11 +38,10 @@
         
                         bat "mvn clean test -Dsurefire.suiteXmlFiles=C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test//resources/${params.SUITE}"
                     }
-          
-             
-   
+
         }
-        stage('reports') {
+        
+        stage('Allure reports') {
             steps {
                 script {
                      allure([
@@ -55,7 +54,18 @@
            }
        }
     }
-}
-
-
-}
+    
+       stage('Send email'){
+           steps{
+              emailext 
+              mail bcc: '', 
+              body: 'Please see allure report', 
+              cc: '', 
+              from: '', 
+              replyTo: '', 
+              subject: 'Jenkins notification', 
+              to: 'solomiyariznuchok@gmail.com'
+        }
+      }
+    }
+  }
