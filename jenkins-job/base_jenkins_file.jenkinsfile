@@ -55,8 +55,7 @@
        }
     }
     
-       stage('Send email'){
-           steps {
+       stage('Send email'){   
               mail bcc: '', 
               body: 'Please see allure report', 
               cc: '', 
@@ -64,7 +63,6 @@
               replyTo: '', 
               subject: 'Jenkins notification', 
               to: 'solomiyariznuchok@gmail.com'
-        }
       }
     }
   }
