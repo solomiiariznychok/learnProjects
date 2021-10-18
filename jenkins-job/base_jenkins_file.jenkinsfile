@@ -33,6 +33,7 @@
                     steps {
                         echo "Building configuration: ${params.SUITE}"
             
+            
 
                         echo "Building pass: C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test//resources/${params.SUITE}"
         
@@ -67,10 +68,21 @@
     
     post {
         always {
-        mail to: 'flearn665@gmail.com',
+             mail to: 'flearn665@gmail.com',
+             subject: "Pipeline: ${currentBuild.fullDisplayName} was executed",
+             body: "Jenkins pipelane was executed ${env.BUILD_URL}"
+               }
+        failure {
+             mail to: 'flearn665@gmail.com',
              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
              body: "Something is wrong with ${env.BUILD_URL}"
-    }
+               }
+               
+        success {
+             mail to: 'flearn665@gmail.com',
+             subject: "Passed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Jenkins pipelane passes with ${env.BUILD_URL}"
+                }
 
   }
 }
