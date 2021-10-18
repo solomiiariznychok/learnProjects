@@ -60,7 +60,7 @@
    
           emailext body: 'Here is Jenkins result notofication message', 
           subject: 'Jenkins notofication', 
-          to: 'solomiyariznuchok@gmail.com'
+          to: 'europe2022!!!'
       }
     }
   }
