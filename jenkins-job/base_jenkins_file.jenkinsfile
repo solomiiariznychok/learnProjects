@@ -55,16 +55,10 @@
        }
     }
     
-       stage('Send email'){
-           steps {
-              mail bcc: '', 
-              body: 'Please see allure report', 
-              cc: '', 
-              from: '', 
-              replyTo: '', 
-              subject: 'Jenkins notification', 
-              to: 'solomiyariznuchok@gmail.com'
-         }
-      }
+    post {
+        always {
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        }
     }
   }
+}
