@@ -55,13 +55,22 @@
        }
     }
     
-    stage('Email notofication'){
-      steps{
-   
-          emailext body: 'Here is Jenkins result notofication message', 
-          subject: 'Jenkins notofication', 
-          to: 'flearn665@gmail.com'
-      }
     }
+    //stage('Email notofication'){
+      //steps{
+   
+          //emailext body: 'Here is Jenkins result notofication message', 
+          //subject: 'Jenkins notofication', 
+          //to: 'flearn665@gmail.com'
+      //}
+    //}
+    
+    post {
+        failure {
+        mail to: 'flearn665@gmail.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    }
+
   }
 }
