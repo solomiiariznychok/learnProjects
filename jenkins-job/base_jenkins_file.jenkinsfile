@@ -9,7 +9,8 @@
         parameters {
             string(name: 'BRANCH', defaultValue: 'master', description: '')
             string(name: 'TESTS', defaultValue: 'SimpleTests#SimpleTests', description: 'Run test method/methods')
-            string(name: 'SUITE', defaultValue: 'SimpleTests.xml', description: 'Run test suite')
+            //string(name: 'SUITE', defaultValue: 'SimpleTests.xml', description: 'Run test suite')
+            string(name: 'SUITE', defaultValue: '', description: 'Run test suite')
         }
 
         options {
