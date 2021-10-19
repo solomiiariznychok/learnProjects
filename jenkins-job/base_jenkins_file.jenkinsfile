@@ -8,8 +8,8 @@
 
         parameters {
             string(name: 'BRANCH', defaultValue: 'master', description: '')
-            string(name: 'TESTS', defaultValue: '', description: 'Run test method/methods')
-            string(name: 'SUITE', defaultValue: '', description: 'Run test suite')
+            string(name: 'TESTS', description: 'Run test method/methods')
+            string(name: 'SUITE', description: 'Run test suite')
         }
 
         options {
