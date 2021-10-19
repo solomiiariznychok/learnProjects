@@ -14,6 +14,7 @@
 
         options {
             timestamps()
+            skipDefaultCheckout true
         }
 
         stages {
@@ -36,7 +37,8 @@
 
                      echo "Building pass: C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test//resources/${params.SUITE}"
 
-                     bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${params.SUITE}"
+                     //bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${params.SUITE}"
+                     bat "mvn -q test -am -Dsuite=${SUITE}
               }
 
         }
