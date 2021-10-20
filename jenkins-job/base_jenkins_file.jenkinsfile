@@ -9,7 +9,6 @@
         parameters {
             string(name: 'BRANCH', defaultValue: 'master', description: '')
             string(name: 'TESTS', description: 'Run test method/methods')
-            //string(name: 'SUITE', description: 'Run test suite')
         }
 
         options {
@@ -37,8 +36,13 @@
 
                      echo "Building pass: C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test//resources/${params.SUITE}"
 
-                     //bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${params.SUITE}"
-                       bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${SUITE}"
+                      withCredentials([gitUsernamePassword(
+                      credentialsId: 'globalID', 
+                      gitToolName: 'Default')]) {
+
+                      }
+
+                      bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${SUITE}"
               }
 
         }
@@ -46,7 +50,7 @@
         stage('Allure reports') {
             steps {
                 script {
-                     allure([
+                    allure([
                     includeProperties: false,
                     jdk: '',
                     properties: [],
