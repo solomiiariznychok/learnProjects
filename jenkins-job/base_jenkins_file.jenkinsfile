@@ -64,7 +64,7 @@
   
        post {
            always {
-             mail to: 'flearn665@gmail.com',
+             mail to: 'solomiyariznuchok@gmail.com',
              subject: "Pipeline: ${currentBuild.fullDisplayName} was executed",
              body: "Jenkins pipelane was executed ${env.BUILD_URL}"
                }
