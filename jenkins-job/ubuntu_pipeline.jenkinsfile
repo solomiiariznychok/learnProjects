@@ -35,13 +35,7 @@
                      echo "-Dsuite=${SUITE}"
 
                      echo "Building pass: C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test//resources/${params.SUITE}"
-
-                      withCredentials([gitUsernamePassword(
-                      credentialsId: 'globalID', 
-                      gitToolName: 'Default')]) {
-
-                      }
-
+                
                       bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${SUITE}"
               }
 
