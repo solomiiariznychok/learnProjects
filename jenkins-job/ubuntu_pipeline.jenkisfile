@@ -1,0 +1,84 @@
+  pipeline {
+        agent any
+
+        tools {
+            // Install the Maven version configured as "M3" and add it to the path.
+            maven "M3"
+        }
+
+        parameters {
+            string(name: 'BRANCH', defaultValue: 'master', description: '')
+            string(name: 'TESTS', description: 'Run test method/methods')
+        }
+
+        options {
+            timestamps()
+            skipDefaultCheckout true
+        }
+
+        stages {
+            stage('Checkout sources') {
+                steps {
+                    //cleanWs()
+                    checkout([$class           : 'GitSCM',
+                              branches         : [[name: '${BRANCH}']],
+                              extensions       : [],
+                              userRemoteConfigs: [[url: 'https://github.com/solomiiariznychok/learnProjects.git']]])
+
+                }
+            }
+            
+         stage('Run defined test suite') {
+                  steps {
+                     echo "Building configuration: ${params.SUITE}"
+                     
+                     echo "-Dsuite=${SUITE}"
+
+                     echo "Building pass: C:/Users/sriznych/.jenkins/workspace/my_test_pipeline/src/test//resources/${params.SUITE}"
+
+                      withCredentials([gitUsernamePassword(
+                      credentialsId: 'globalID', 
+                      gitToolName: 'Default')]) {
+
+                      }
+
+                      bat "mvn clean test -Dsurefire.suiteXmlFiles=D:/jenkins/workspace/web_ui_pipeline/src/test/resources/${SUITE}"
+              }
+
+        }
+        
+        stage('Allure reports') {
+            steps {
+                script {
+                    allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'target/allure-results']]
+               ])
+           }
+       }
+    }   
+}
+  
+       post {
+           always {
+             mail to: 'solomiyariznuchok@gmail.com',
+             subject: "Pipeline: ${currentBuild.fullDisplayName} was executed",
+             body: "Jenkins pipelane was executed ${env.BUILD_URL}"
+               }
+           failure {
+             mail to: 'flearn665@gmail.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+               }
+               
+           success {
+             mail to: 'flearn665@gmail.com',
+             subject: "Passed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Jenkins pipelane passes with ${env.BUILD_URL}"
+                }
+
+    }
+}
