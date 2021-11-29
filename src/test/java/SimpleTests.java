@@ -44,5 +44,5 @@ public class SimpleTests {
     
      @Test(priority = 9)
      public void test_check9(){
-       Assert.assertEquals(true, false);
+       Assert.assertEquals(5, 4);
 }
